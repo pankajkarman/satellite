@@ -30,7 +30,7 @@ gome2 = GOME(files, field, spacing).resample('D')
 fig, ax, cb, m = gome2.plot(scale=1, figsize=(14, 5.5))
 plt.show()
 ```
-
+![GOME 2 NO2 Column (daily resampled mean of MetOpA, MetOpB and MetOpC)](./example_O3.png)
 
 ## for MLS Profiles
 
