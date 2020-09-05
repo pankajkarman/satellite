@@ -1,16 +1,36 @@
 
-Python scripts to read and correct of satellite atmospheric composition profile data.
+Python scripts to read and correct satellite atmospheric composition data (both profile and column).
 
 ## Implemented satellites inlcude:
+- [GOME2 Trace Gas Columns](https://www.eumetsat.int/website/home/Satellites/CurrentSatellites/Metop/MetopDesign/GOME2/index.html)
 - [Aura-MLS](https://mls.jpl.nasa.gov/)
-- [Suomi- NPP OMPS](https://www.star.nesdis.noaa.gov/icvs/status_NPP_OMPS_LP.php)
+- [Suomi-NPP OMPS](https://www.star.nesdis.noaa.gov/icvs/status_NPP_OMPS_LP.php)
 
 # Usage
 
 ```python
 from satellite import MLSProfile
 from satellite import OMPSProfile
+from satellite import GOMEColumn, GOME
 ```
+
+## for GOME2 Columns
+
+```python
+filename = '/home/pankaj/arctic/GOME_O3-NO2-NO2Tropo-BrO-SO2-H2O-HCHO_L2_20200101001028_051_METOPA_68496_DLR_04.HDF5'
+
+gcol = GOMEColumn(filename)
+data = gcol.read(fields=['O3', 'NO2'])
+
+field = 'O3'
+spacing = 0.25
+files = sorted(glob.glob('/home/pankaj/arctic/*METOP*.HDF5'), \
+               key=lambda x:int(x.split('L2')[-1].split('_')[1]))
+gome2 = GOME(files, field, spacing).resample('D')
+fig, ax, cb, m = gome2.plot(scale=1, figsize=(14, 5.5))
+plt.show()
+```
+
 
 ## for MLS Profiles
 
