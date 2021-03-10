@@ -6,6 +6,10 @@ Python scripts to read and correct satellite atmospheric composition data (both 
 - [Aura-MLS](https://mls.jpl.nasa.gov/)
 - [Suomi-NPP OMPS](https://www.star.nesdis.noaa.gov/icvs/status_NPP_OMPS_LP.php)
 
+## Documentation
+
+Latest documentation is available [here](https://pankajkarman.github.io/satellite/).
+
 # Usage
 
 ```python
