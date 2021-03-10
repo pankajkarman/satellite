@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>satellite.mls_correction API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>satellite.mls_correction</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import h5py
+import numpy as np
+import pandas as pd
+from scipy import interpolate
+
+&#39;&#39;&#39;
+script to read MLS profiles
+MLS data version: v4.2
+species: GPH, Temperature, Ozone, Water vapour, N2O, CLO, HNO3
+&#39;&#39;&#39;
+
+class MLSProfile():
+    &#39;&#39;&#39;
+    mls = MLSProfile(filename) # filename is the name of mls data file to be read.
+
+    Example:
+    # read geolocation fields
+    latitude, Longitude, levels, LineOfSightAngle, local solar time, oga, sza, tim, chn = omps.read(dtype=&#39;geolocation&#39;)
+    # main atmospheric composition data
+    speciesname, Convergence, precision, concentration, quality, stability, number of vertical levels, number of timesteps = omps.read(dtype=&#39;data&#39;)
+    &#39;&#39;&#39;
+    def __init__(self, filename):
+        self.filename  = filename
+        self.fieldname = filename.split(&#39;-&#39;)[2].split(&#39;_&#39;)[0]
+
+    def read(self, dtype=&#39;geolocation&#39;):
+        &#39;&#39;&#39;
+        function to read profile and other data.
+        Here, dtype specifies the data type to be returned.
+        options include: geolocation and data.
+        &#39;&#39;&#39;
+        field = self.fieldname
+        with h5py.File(self.filename, &#39;r&#39;) as f:
+            data = f[&#39;HDFEOS&#39;][&#39;SWATHS&#39;][field]
+            if dtype==&#39;geolocation&#39;:
+                lat = data[&#39;Geolocation Fields&#39;][&#39;Latitude&#39;][()]
+                lon = data[&#39;Geolocation Fields&#39;][&#39;Longitude&#39;][()]
+                lev = data[&#39;Geolocation Fields&#39;][&#39;Pressure&#39;][()]
+                lsa = data[&#39;Geolocation Fields&#39;][&#39;LineOfSightAngle&#39;][()]
+                lst = data[&#39;Geolocation Fields&#39;][&#39;LocalSolarTime&#39;][()]
+                oga = data[&#39;Geolocation Fields&#39;][&#39;OrbitGeodeticAngle&#39;][()]
+                sza = data[&#39;Geolocation Fields&#39;][&#39;SolarZenithAngle&#39;][()]
+                tim = data[&#39;Geolocation Fields&#39;][&#39;Time&#39;][()]
+                chn = data[&#39;Geolocation Fields&#39;][&#39;ChunkNumber&#39;][()]
+                return lat, lon, lev, lsa, lst, oga, sza, tim, chn
+
+            if dtype==&#39;data&#39;:
+                con = data[&#39;Data Fields&#39;][&#39;Convergence&#39;][()]
+                prc = data[&#39;Data Fields&#39;][&#39;L2gpPrecision&#39;][()]
+                mol = data[&#39;Data Fields&#39;][&#39;L2gpValue&#39;][()]
+                qua = data[&#39;Data Fields&#39;][&#39;Quality&#39;][()]
+                sta = data[&#39;Data Fields&#39;][&#39;Status&#39;][()]
+                nlev = data[&#39;nLevels&#39;][()]
+                nlev = len(nlev)
+                ntim = data[&#39;nTimes&#39;][()]
+                ntim = len(ntim)
+                return field, con, prc, mol, qua, sta, nlev, ntim
+
+    def correct(self, biasfile=&#39;MLS-Aura_ClO-BiasCorrection_v04.txt&#39;):
+        &#39;&#39;&#39;
+        function to correct atmospheric composition data. Consult MLS data quality and description document for details.
+        Here, biasfile is used for correcting ClO data only. for all other species, it can be set to None.
+
+        example:
+        mol, prc = mls.correct()
+        &#39;&#39;&#39;
+        lat, lon, pre, lsa, lst, oga, sza, tim, chn = self.read(dtype=&#39;geolocation&#39;)
+        field, con, prc, mol, qua, sta, nlev, ntim = self.read(dtype=&#39;data&#39;)
+        mol[prc&lt;=0] = np.nan
+
+        if field in [&#39;GPH&#39;, &#39;Temperature&#39;]:
+            criteria1 = (con&lt;1.03) &amp; (qua&gt;0.2) &amp; (sta%2==0)
+            criteria2 = (pre&gt;0.001) &amp; (pre&lt;261)
+            criteria3 = (pre&gt;=100)
+            criteria4 = (qua&gt;0.9)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                var[:, criteria3][~criteria4, :]  = np.nan
+
+        if field == &#39;O3&#39;:
+            do = (pre&gt;260) &amp; (pre&lt;262)
+            eo = (pre&lt;0.018)
+            ll = (pre&gt;314) &amp; (pre&lt;318)
+            hl = (pre&gt;=0.0018) &amp; (pre&lt;0.0025)
+
+            criteria1 = (con&lt;1.03) &amp; (qua&gt;1.0) &amp; (sta%2==0)
+            criteria2 = (pre&gt;0.02) &amp; (pre&lt;261)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                var[:, ll | eo] = np.nan
+
+        if field == &#39;H2O&#39;:
+            criteria1 = (con&lt;2.0) &amp; (qua&gt;1.45) &amp; (sta%2==0) &amp; (sta!=16) &amp; (sta!=32)
+            criteria2 = (pre&gt;0.002) &amp; (pre&lt;317)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+
+        if field == &#39;N2O&#39;:
+            criteria1 = (con&lt;2.0) &amp; (qua&gt;1.0) &amp; (sta%2==0) &amp; (sta!=16) &amp; (sta!=32)
+            criteria2 = (pre&gt;0.45) &amp; (pre&lt;69)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+
+        if field == &#39;ClO&#39;:
+            bs = pd.read_csv(biasfile, skiprows=13, sep=&#39;\s+&#39;, dtype=&#39;float&#39;, na_values=-999.99)
+            bs.columns = [&#39;146.78&#39;, &#39;100.00&#39;,&#39;68.13&#39;]
+            bs = bs.ffill().bfill()
+
+            bias1 = interpolate.interp1d(bs.index, bs[&#39;146.78&#39;])
+            bias2 = interpolate.interp1d(bs.index, bs[&#39;100.00&#39;])
+            bias3 = interpolate.interp1d(bs.index, bs[&#39;68.13&#39;])
+
+            mol[:, 5] -= bias1(lat)
+            mol[:, 6] -= bias2(lat)
+            mol[:, 7] -= bias3(lat)
+            #mol[mol&lt;0] = np.nan
+
+            criteria1 = (con&lt;1.05) &amp; (qua&gt;1.3) &amp; (sta==0)
+            criteria2 = (pre&gt;1.0) &amp; (pre&lt;147)
+            #criteria3 = (sza&lt;=89)
+            #criteria4 = (10&lt;=lst) &amp; (lst&lt;=16)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                #var[~criteria3, :] = np.nan
+                #var[~criteria4, :] = np.nan
+
+        if field == &#39;HNO3&#39;:
+            criteria1 = (sta%2==0)
+            criteria2 = (pre&gt;0.001) &amp; (pre&lt;261)
+            criteria3 = (pre&gt;=22)
+            criteria4 = (qua&gt;0.8)  &amp; (con&lt;1.03)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                var[:, criteria3][~criteria4, :]  = np.nan
+        return mol, prc</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="satellite.mls_correction.MLSProfile"><code class="flex name class">
+<span>class <span class="ident">MLSProfile</span></span>
+<span>(</span><span>filename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>mls = MLSProfile(filename) # filename is the name of mls data file to be read.</p>
+<p>Example:</p>
+<h1 id="read-geolocation-fields">read geolocation fields</h1>
+<p>latitude, Longitude, levels, LineOfSightAngle, local solar time, oga, sza, tim, chn = omps.read(dtype='geolocation')</p>
+<h1 id="main-atmospheric-composition-data">main atmospheric composition data</h1>
+<p>speciesname, Convergence, precision, concentration, quality, stability, number of vertical levels, number of timesteps = omps.read(dtype='data')</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MLSProfile():
+    &#39;&#39;&#39;
+    mls = MLSProfile(filename) # filename is the name of mls data file to be read.
+
+    Example:
+    # read geolocation fields
+    latitude, Longitude, levels, LineOfSightAngle, local solar time, oga, sza, tim, chn = omps.read(dtype=&#39;geolocation&#39;)
+    # main atmospheric composition data
+    speciesname, Convergence, precision, concentration, quality, stability, number of vertical levels, number of timesteps = omps.read(dtype=&#39;data&#39;)
+    &#39;&#39;&#39;
+    def __init__(self, filename):
+        self.filename  = filename
+        self.fieldname = filename.split(&#39;-&#39;)[2].split(&#39;_&#39;)[0]
+
+    def read(self, dtype=&#39;geolocation&#39;):
+        &#39;&#39;&#39;
+        function to read profile and other data.
+        Here, dtype specifies the data type to be returned.
+        options include: geolocation and data.
+        &#39;&#39;&#39;
+        field = self.fieldname
+        with h5py.File(self.filename, &#39;r&#39;) as f:
+            data = f[&#39;HDFEOS&#39;][&#39;SWATHS&#39;][field]
+            if dtype==&#39;geolocation&#39;:
+                lat = data[&#39;Geolocation Fields&#39;][&#39;Latitude&#39;][()]
+                lon = data[&#39;Geolocation Fields&#39;][&#39;Longitude&#39;][()]
+                lev = data[&#39;Geolocation Fields&#39;][&#39;Pressure&#39;][()]
+                lsa = data[&#39;Geolocation Fields&#39;][&#39;LineOfSightAngle&#39;][()]
+                lst = data[&#39;Geolocation Fields&#39;][&#39;LocalSolarTime&#39;][()]
+                oga = data[&#39;Geolocation Fields&#39;][&#39;OrbitGeodeticAngle&#39;][()]
+                sza = data[&#39;Geolocation Fields&#39;][&#39;SolarZenithAngle&#39;][()]
+                tim = data[&#39;Geolocation Fields&#39;][&#39;Time&#39;][()]
+                chn = data[&#39;Geolocation Fields&#39;][&#39;ChunkNumber&#39;][()]
+                return lat, lon, lev, lsa, lst, oga, sza, tim, chn
+
+            if dtype==&#39;data&#39;:
+                con = data[&#39;Data Fields&#39;][&#39;Convergence&#39;][()]
+                prc = data[&#39;Data Fields&#39;][&#39;L2gpPrecision&#39;][()]
+                mol = data[&#39;Data Fields&#39;][&#39;L2gpValue&#39;][()]
+                qua = data[&#39;Data Fields&#39;][&#39;Quality&#39;][()]
+                sta = data[&#39;Data Fields&#39;][&#39;Status&#39;][()]
+                nlev = data[&#39;nLevels&#39;][()]
+                nlev = len(nlev)
+                ntim = data[&#39;nTimes&#39;][()]
+                ntim = len(ntim)
+                return field, con, prc, mol, qua, sta, nlev, ntim
+
+    def correct(self, biasfile=&#39;MLS-Aura_ClO-BiasCorrection_v04.txt&#39;):
+        &#39;&#39;&#39;
+        function to correct atmospheric composition data. Consult MLS data quality and description document for details.
+        Here, biasfile is used for correcting ClO data only. for all other species, it can be set to None.
+
+        example:
+        mol, prc = mls.correct()
+        &#39;&#39;&#39;
+        lat, lon, pre, lsa, lst, oga, sza, tim, chn = self.read(dtype=&#39;geolocation&#39;)
+        field, con, prc, mol, qua, sta, nlev, ntim = self.read(dtype=&#39;data&#39;)
+        mol[prc&lt;=0] = np.nan
+
+        if field in [&#39;GPH&#39;, &#39;Temperature&#39;]:
+            criteria1 = (con&lt;1.03) &amp; (qua&gt;0.2) &amp; (sta%2==0)
+            criteria2 = (pre&gt;0.001) &amp; (pre&lt;261)
+            criteria3 = (pre&gt;=100)
+            criteria4 = (qua&gt;0.9)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                var[:, criteria3][~criteria4, :]  = np.nan
+
+        if field == &#39;O3&#39;:
+            do = (pre&gt;260) &amp; (pre&lt;262)
+            eo = (pre&lt;0.018)
+            ll = (pre&gt;314) &amp; (pre&lt;318)
+            hl = (pre&gt;=0.0018) &amp; (pre&lt;0.0025)
+
+            criteria1 = (con&lt;1.03) &amp; (qua&gt;1.0) &amp; (sta%2==0)
+            criteria2 = (pre&gt;0.02) &amp; (pre&lt;261)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                var[:, ll | eo] = np.nan
+
+        if field == &#39;H2O&#39;:
+            criteria1 = (con&lt;2.0) &amp; (qua&gt;1.45) &amp; (sta%2==0) &amp; (sta!=16) &amp; (sta!=32)
+            criteria2 = (pre&gt;0.002) &amp; (pre&lt;317)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+
+        if field == &#39;N2O&#39;:
+            criteria1 = (con&lt;2.0) &amp; (qua&gt;1.0) &amp; (sta%2==0) &amp; (sta!=16) &amp; (sta!=32)
+            criteria2 = (pre&gt;0.45) &amp; (pre&lt;69)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+
+        if field == &#39;ClO&#39;:
+            bs = pd.read_csv(biasfile, skiprows=13, sep=&#39;\s+&#39;, dtype=&#39;float&#39;, na_values=-999.99)
+            bs.columns = [&#39;146.78&#39;, &#39;100.00&#39;,&#39;68.13&#39;]
+            bs = bs.ffill().bfill()
+
+            bias1 = interpolate.interp1d(bs.index, bs[&#39;146.78&#39;])
+            bias2 = interpolate.interp1d(bs.index, bs[&#39;100.00&#39;])
+            bias3 = interpolate.interp1d(bs.index, bs[&#39;68.13&#39;])
+
+            mol[:, 5] -= bias1(lat)
+            mol[:, 6] -= bias2(lat)
+            mol[:, 7] -= bias3(lat)
+            #mol[mol&lt;0] = np.nan
+
+            criteria1 = (con&lt;1.05) &amp; (qua&gt;1.3) &amp; (sta==0)
+            criteria2 = (pre&gt;1.0) &amp; (pre&lt;147)
+            #criteria3 = (sza&lt;=89)
+            #criteria4 = (10&lt;=lst) &amp; (lst&lt;=16)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                #var[~criteria3, :] = np.nan
+                #var[~criteria4, :] = np.nan
+
+        if field == &#39;HNO3&#39;:
+            criteria1 = (sta%2==0)
+            criteria2 = (pre&gt;0.001) &amp; (pre&lt;261)
+            criteria3 = (pre&gt;=22)
+            criteria4 = (qua&gt;0.8)  &amp; (con&lt;1.03)
+            for var in [mol, prc]:
+                var[~criteria1, :] = np.nan
+                var[:, ~criteria2] = np.nan
+                var[:, criteria3][~criteria4, :]  = np.nan
+        return mol, prc</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="satellite.mls_correction.MLSProfile.correct"><code class="name flex">
+<span>def <span class="ident">correct</span></span>(<span>self, biasfile='MLS-Aura_ClO-BiasCorrection_v04.txt')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>function to correct atmospheric composition data. Consult MLS data quality and description document for details.
+Here, biasfile is used for correcting ClO data only. for all other species, it can be set to None.</p>
+<p>example:
+mol, prc = mls.correct()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def correct(self, biasfile=&#39;MLS-Aura_ClO-BiasCorrection_v04.txt&#39;):
+    &#39;&#39;&#39;
+    function to correct atmospheric composition data. Consult MLS data quality and description document for details.
+    Here, biasfile is used for correcting ClO data only. for all other species, it can be set to None.
+
+    example:
+    mol, prc = mls.correct()
+    &#39;&#39;&#39;
+    lat, lon, pre, lsa, lst, oga, sza, tim, chn = self.read(dtype=&#39;geolocation&#39;)
+    field, con, prc, mol, qua, sta, nlev, ntim = self.read(dtype=&#39;data&#39;)
+    mol[prc&lt;=0] = np.nan
+
+    if field in [&#39;GPH&#39;, &#39;Temperature&#39;]:
+        criteria1 = (con&lt;1.03) &amp; (qua&gt;0.2) &amp; (sta%2==0)
+        criteria2 = (pre&gt;0.001) &amp; (pre&lt;261)
+        criteria3 = (pre&gt;=100)
+        criteria4 = (qua&gt;0.9)
+        for var in [mol, prc]:
+            var[~criteria1, :] = np.nan
+            var[:, ~criteria2] = np.nan
+            var[:, criteria3][~criteria4, :]  = np.nan
+
+    if field == &#39;O3&#39;:
+        do = (pre&gt;260) &amp; (pre&lt;262)
+        eo = (pre&lt;0.018)
+        ll = (pre&gt;314) &amp; (pre&lt;318)
+        hl = (pre&gt;=0.0018) &amp; (pre&lt;0.0025)
+
+        criteria1 = (con&lt;1.03) &amp; (qua&gt;1.0) &amp; (sta%2==0)
+        criteria2 = (pre&gt;0.02) &amp; (pre&lt;261)
+        for var in [mol, prc]:
+            var[~criteria1, :] = np.nan
+            var[:, ~criteria2] = np.nan
+            var[:, ll | eo] = np.nan
+
+    if field == &#39;H2O&#39;:
+        criteria1 = (con&lt;2.0) &amp; (qua&gt;1.45) &amp; (sta%2==0) &amp; (sta!=16) &amp; (sta!=32)
+        criteria2 = (pre&gt;0.002) &amp; (pre&lt;317)
+        for var in [mol, prc]:
+            var[~criteria1, :] = np.nan
+            var[:, ~criteria2] = np.nan
+
+    if field == &#39;N2O&#39;:
+        criteria1 = (con&lt;2.0) &amp; (qua&gt;1.0) &amp; (sta%2==0) &amp; (sta!=16) &amp; (sta!=32)
+        criteria2 = (pre&gt;0.45) &amp; (pre&lt;69)
+        for var in [mol, prc]:
+            var[~criteria1, :] = np.nan
+            var[:, ~criteria2] = np.nan
+
+    if field == &#39;ClO&#39;:
+        bs = pd.read_csv(biasfile, skiprows=13, sep=&#39;\s+&#39;, dtype=&#39;float&#39;, na_values=-999.99)
+        bs.columns = [&#39;146.78&#39;, &#39;100.00&#39;,&#39;68.13&#39;]
+        bs = bs.ffill().bfill()
+
+        bias1 = interpolate.interp1d(bs.index, bs[&#39;146.78&#39;])
+        bias2 = interpolate.interp1d(bs.index, bs[&#39;100.00&#39;])
+        bias3 = interpolate.interp1d(bs.index, bs[&#39;68.13&#39;])
+
+        mol[:, 5] -= bias1(lat)
+        mol[:, 6] -= bias2(lat)
+        mol[:, 7] -= bias3(lat)
+        #mol[mol&lt;0] = np.nan
+
+        criteria1 = (con&lt;1.05) &amp; (qua&gt;1.3) &amp; (sta==0)
+        criteria2 = (pre&gt;1.0) &amp; (pre&lt;147)
+        #criteria3 = (sza&lt;=89)
+        #criteria4 = (10&lt;=lst) &amp; (lst&lt;=16)
+        for var in [mol, prc]:
+            var[~criteria1, :] = np.nan
+            var[:, ~criteria2] = np.nan
+            #var[~criteria3, :] = np.nan
+            #var[~criteria4, :] = np.nan
+
+    if field == &#39;HNO3&#39;:
+        criteria1 = (sta%2==0)
+        criteria2 = (pre&gt;0.001) &amp; (pre&lt;261)
+        criteria3 = (pre&gt;=22)
+        criteria4 = (qua&gt;0.8)  &amp; (con&lt;1.03)
+        for var in [mol, prc]:
+            var[~criteria1, :] = np.nan
+            var[:, ~criteria2] = np.nan
+            var[:, criteria3][~criteria4, :]  = np.nan
+    return mol, prc</code></pre>
+</details>
+</dd>
+<dt id="satellite.mls_correction.MLSProfile.read"><code class="name flex">
+<span>def <span class="ident">read</span></span>(<span>self, dtype='geolocation')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>function to read profile and other data.
+Here, dtype specifies the data type to be returned.
+options include: geolocation and data.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self, dtype=&#39;geolocation&#39;):
+    &#39;&#39;&#39;
+    function to read profile and other data.
+    Here, dtype specifies the data type to be returned.
+    options include: geolocation and data.
+    &#39;&#39;&#39;
+    field = self.fieldname
+    with h5py.File(self.filename, &#39;r&#39;) as f:
+        data = f[&#39;HDFEOS&#39;][&#39;SWATHS&#39;][field]
+        if dtype==&#39;geolocation&#39;:
+            lat = data[&#39;Geolocation Fields&#39;][&#39;Latitude&#39;][()]
+            lon = data[&#39;Geolocation Fields&#39;][&#39;Longitude&#39;][()]
+            lev = data[&#39;Geolocation Fields&#39;][&#39;Pressure&#39;][()]
+            lsa = data[&#39;Geolocation Fields&#39;][&#39;LineOfSightAngle&#39;][()]
+            lst = data[&#39;Geolocation Fields&#39;][&#39;LocalSolarTime&#39;][()]
+            oga = data[&#39;Geolocation Fields&#39;][&#39;OrbitGeodeticAngle&#39;][()]
+            sza = data[&#39;Geolocation Fields&#39;][&#39;SolarZenithAngle&#39;][()]
+            tim = data[&#39;Geolocation Fields&#39;][&#39;Time&#39;][()]
+            chn = data[&#39;Geolocation Fields&#39;][&#39;ChunkNumber&#39;][()]
+            return lat, lon, lev, lsa, lst, oga, sza, tim, chn
+
+        if dtype==&#39;data&#39;:
+            con = data[&#39;Data Fields&#39;][&#39;Convergence&#39;][()]
+            prc = data[&#39;Data Fields&#39;][&#39;L2gpPrecision&#39;][()]
+            mol = data[&#39;Data Fields&#39;][&#39;L2gpValue&#39;][()]
+            qua = data[&#39;Data Fields&#39;][&#39;Quality&#39;][()]
+            sta = data[&#39;Data Fields&#39;][&#39;Status&#39;][()]
+            nlev = data[&#39;nLevels&#39;][()]
+            nlev = len(nlev)
+            ntim = data[&#39;nTimes&#39;][()]
+            ntim = len(ntim)
+            return field, con, prc, mol, qua, sta, nlev, ntim</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="satellite" href="index.html">satellite</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="satellite.mls_correction.MLSProfile" href="#satellite.mls_correction.MLSProfile">MLSProfile</a></code></h4>
+<ul class="">
+<li><code><a title="satellite.mls_correction.MLSProfile.correct" href="#satellite.mls_correction.MLSProfile.correct">correct</a></code></li>
+<li><code><a title="satellite.mls_correction.MLSProfile.read" href="#satellite.mls_correction.MLSProfile.read">read</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
