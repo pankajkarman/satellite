@@ -2,20 +2,29 @@ import h5py
 import numpy as np
 
 '''
-script to read OMPS ozone profiles
-OMPS data version: v2.5
+
 '''
 
 
 class OMPSProfile():
     '''
+    script to read OMPS ozone profiles
+    
+    **OMPS data version:** v2.5
+    
+    Example:
+    
+    ```python
     omps = OMPSProfile(filename)
     lat, lon, lev, date, time, sza, ssa, tph, cld = omps.read(dtype='aux')
     pre, tem, ouv, puv, ovi, pvi = omps.read(dtype='data')
     slf, adf, quv, qvi, afg, quf, qvf = omps.read(dtype='flags')
     uvres, vires, event, srf = omps.read(dtype='other')
-    ouv, puv, ovi, pvi = omps.correct(vmr=True) # if you want vmr in return
-    ouv, puv, ovi, pvi = omps.correct(vmr=False) # to return concentration in cm**-3.
+    ouv, puv, ovi, pvi = omps.correct(vmr=True) 
+    
+    # to return concentration in cm**-3.    
+    ouv, puv, ovi, pvi = omps.correct(vmr=False)     
+    ```
     '''
     def __init__(self, filename):
         self.filename = filename

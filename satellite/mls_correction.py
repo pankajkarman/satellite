@@ -3,21 +3,24 @@ import numpy as np
 import pandas as pd
 from scipy import interpolate
 
-'''
-script to read MLS profiles
-MLS data version: v4.2
-species: GPH, Temperature, Ozone, Water vapour, N2O, CLO, HNO3
-'''
-
 class MLSProfile():
     '''
-    mls = MLSProfile(filename) # filename is the name of mls data file to be read.
+    script to read MLS profiles
+    
+    **MLS data version:** v4.2
+    
+    **species:** GPH, Temperature, Ozone, Water vapour, N<sub>2</sub>O, CLO, HNO<sub>3</sub>
+    
+   
 
     Example:
-    # read geolocation fields
-    latitude, Longitude, levels, LineOfSightAngle, local solar time, oga, sza, tim, chn = omps.read(dtype='geolocation')
-    # main atmospheric composition data
-    speciesname, Convergence, precision, concentration, quality, stability, number of vertical levels, number of timesteps = omps.read(dtype='data')
+    ```python
+    mls = MLSProfile(filename) 
+    # filename is the name of mls data file to be read.
+    
+    # read geolocation fields    
+    latitude, Longitude, levels, LineOfSightAngle, local solar time, oga, sza, tim, chn = mls.read(dtype='geolocation')
+    ```
     '''
     def __init__(self, filename):
         self.filename  = filename
@@ -62,7 +65,9 @@ class MLSProfile():
         Here, biasfile is used for correcting ClO data only. for all other species, it can be set to None.
 
         example:
+        ```python
         mol, prc = mls.correct()
+        ```
         '''
         lat, lon, pre, lsa, lst, oga, sza, tim, chn = self.read(dtype='geolocation')
         field, con, prc, mol, qua, sta, nlev, ntim = self.read(dtype='data')

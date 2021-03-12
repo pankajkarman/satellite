@@ -47,14 +47,20 @@ species: &#39;O3&#39;, &#39;NO2&#39;, &#39;NO2Tropo&#39;, &#39;HCHO&#39;, &#39;H
 
 class GOMEColumn():
     &#39;&#39;&#39;
-    gcol = GOMEColumn(filename) # filename is the name of GOME2 data file to be read.
-
+    python class to read GOME data and perform gridding and resample.
+    
+    
+    
     Example:
+    ```python
+    gcol = GOMEColumn(filename) 
+    # filename is the name of GOME2 data file to be read.
     # read raw data (both trace gas and geolocation)
     data = gcol.read(fields=[&#39;O3&#39;, &#39;NO2&#39;])
     
     # Perform gridding of data using latlon projection specifying the region boundary and resolution
     new = gcol.grid_data(field, region=(-180, 179.8, -89.75, 89.75), spacing=0.1, positive=True)
+    ```
     
     Here spacing stands for the resoultion of grids.
     region specifies the latitude and longitude ranges.
@@ -102,12 +108,21 @@ class GOMEColumn():
 
 class GOME():
     &#39;&#39;&#39;
-    gome = GOME(files, field, resolution) # files is the names of GOME2 data files to be read.
-    field represents trace gas fieldname (option=[&#39;O3&#39;, &#39;NO2&#39;, &#39;NO2Tropo&#39;, &#39;HCHO&#39;, &#39;H2O&#39;, &#39;SO2&#39;, &#39;BrO&#39;])
+    python class to read GOME data and perform gridding and resample.
     
-    gome = gome.resample(freq=&#39;D&#39;) # it will perform the gridding and resampling of data with frequecy given as freq.
     
-    fig, ax, cb, m = gome.plot() # It will plot the resampled data using cylindrical projection with Basemap. 
+    Example:
+    ```python
+    gome = GOME(files, field, resolution) 
+    # files is the names of GOME2 data files to be read. 
+    # field represents trace gas fieldname (option=[&#39;O3&#39;, &#39;NO2&#39;, &#39;NO2Tropo&#39;, &#39;HCHO&#39;, &#39;H2O&#39;, &#39;SO2&#39;, &#39;BrO&#39;])
+    
+    gome = gome.resample(freq=&#39;D&#39;) 
+    # gridding and resampling of data with frequecy given as freq.
+    
+    fig, ax, cb, m = gome.plot() 
+    # plotting the resampled data using cylindrical projection with Basemap. 
+    ```
     
     &#39;&#39;&#39;
 
@@ -155,22 +170,39 @@ class GOME():
 <span>(</span><span>files, field='O3', spacing=0.1)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>gome = GOME(files, field, resolution) # files is the names of GOME2 data files to be read.
-field represents trace gas fieldname (option=['O3', 'NO2', 'NO2Tropo', 'HCHO', 'H2O', 'SO2', 'BrO'])</p>
-<p>gome = gome.resample(freq='D') # it will perform the gridding and resampling of data with frequecy given as freq.</p>
-<p>fig, ax, cb, m = gome.plot() # It will plot the resampled data using cylindrical projection with Basemap.</p></div>
+<div class="desc"><p>python class to read GOME data and perform gridding and resample.</p>
+<p>Example:</p>
+<pre><code class="language-python">gome = GOME(files, field, resolution) 
+# files is the names of GOME2 data files to be read. 
+# field represents trace gas fieldname (option=['O3', 'NO2', 'NO2Tropo', 'HCHO', 'H2O', 'SO2', 'BrO'])
+
+gome = gome.resample(freq='D') 
+# gridding and resampling of data with frequecy given as freq.
+
+fig, ax, cb, m = gome.plot() 
+# plotting the resampled data using cylindrical projection with Basemap. 
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class GOME():
     &#39;&#39;&#39;
-    gome = GOME(files, field, resolution) # files is the names of GOME2 data files to be read.
-    field represents trace gas fieldname (option=[&#39;O3&#39;, &#39;NO2&#39;, &#39;NO2Tropo&#39;, &#39;HCHO&#39;, &#39;H2O&#39;, &#39;SO2&#39;, &#39;BrO&#39;])
+    python class to read GOME data and perform gridding and resample.
     
-    gome = gome.resample(freq=&#39;D&#39;) # it will perform the gridding and resampling of data with frequecy given as freq.
     
-    fig, ax, cb, m = gome.plot() # It will plot the resampled data using cylindrical projection with Basemap. 
+    Example:
+    ```python
+    gome = GOME(files, field, resolution) 
+    # files is the names of GOME2 data files to be read. 
+    # field represents trace gas fieldname (option=[&#39;O3&#39;, &#39;NO2&#39;, &#39;NO2Tropo&#39;, &#39;HCHO&#39;, &#39;H2O&#39;, &#39;SO2&#39;, &#39;BrO&#39;])
+    
+    gome = gome.resample(freq=&#39;D&#39;) 
+    # gridding and resampling of data with frequecy given as freq.
+    
+    fig, ax, cb, m = gome.plot() 
+    # plotting the resampled data using cylindrical projection with Basemap. 
+    ```
     
     &#39;&#39;&#39;
 
@@ -256,12 +288,16 @@ field represents trace gas fieldname (option=['O3', 'NO2', 'NO2Tropo', 'HCHO', '
 <span>(</span><span>filename)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>gcol = GOMEColumn(filename) # filename is the name of GOME2 data file to be read.</p>
+<div class="desc"><p>python class to read GOME data and perform gridding and resample.</p>
 <p>Example:</p>
-<h1 id="read-raw-data-both-trace-gas-and-geolocation">read raw data (both trace gas and geolocation)</h1>
-<p>data = gcol.read(fields=['O3', 'NO2'])</p>
-<h1 id="perform-gridding-of-data-using-latlon-projection-specifying-the-region-boundary-and-resolution">Perform gridding of data using latlon projection specifying the region boundary and resolution</h1>
-<p>new = gcol.grid_data(field, region=(-180, 179.8, -89.75, 89.75), spacing=0.1, positive=True)</p>
+<pre><code class="language-python">gcol = GOMEColumn(filename) 
+# filename is the name of GOME2 data file to be read.
+# read raw data (both trace gas and geolocation)
+data = gcol.read(fields=['O3', 'NO2'])
+
+# Perform gridding of data using latlon projection specifying the region boundary and resolution
+new = gcol.grid_data(field, region=(-180, 179.8, -89.75, 89.75), spacing=0.1, positive=True)
+</code></pre>
 <p>Here spacing stands for the resoultion of grids.
 region specifies the latitude and longitude ranges.</p></div>
 <details class="source">
@@ -270,14 +306,20 @@ region specifies the latitude and longitude ranges.</p></div>
 </summary>
 <pre><code class="python">class GOMEColumn():
     &#39;&#39;&#39;
-    gcol = GOMEColumn(filename) # filename is the name of GOME2 data file to be read.
-
+    python class to read GOME data and perform gridding and resample.
+    
+    
+    
     Example:
+    ```python
+    gcol = GOMEColumn(filename) 
+    # filename is the name of GOME2 data file to be read.
     # read raw data (both trace gas and geolocation)
     data = gcol.read(fields=[&#39;O3&#39;, &#39;NO2&#39;])
     
     # Perform gridding of data using latlon projection specifying the region boundary and resolution
     new = gcol.grid_data(field, region=(-180, 179.8, -89.75, 89.75), spacing=0.1, positive=True)
+    ```
     
     Here spacing stands for the resoultion of grids.
     region specifies the latitude and longitude ranges.
